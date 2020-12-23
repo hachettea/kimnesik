@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: 1,
+        currentIndex: 0,
         onTap: (int index) {
           setState(() {
           });
@@ -40,28 +40,28 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: new ImageIcon(
                   AssetImage('assets/home.png')
               ),
-              title: new Text('Home')
+              label: 'Home'
           ),
 
           new BottomNavigationBarItem(
               icon: new ImageIcon(
                   AssetImage('assets/patient.png')
               ),
-              title: new Text('Patients')
+              label: 'Patients'
           ),
 
           new BottomNavigationBarItem(
               icon: new ImageIcon(
                   AssetImage('assets/cardiogram.png')
               ),
-              title: Text('Programmes')
+              label: 'Programmes'
           ),
 
           new BottomNavigationBarItem(
               icon: new ImageIcon(
                   AssetImage('assets/bell.png')
               ),
-              title: Text('Programmes')
+              label: 'Alertes'
           )
 
 
