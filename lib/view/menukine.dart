@@ -28,7 +28,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+
         type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xff005DFF),
+        unselectedItemColor: Color(0x7F005DFF),
+        selectedFontSize: 12,
+        iconSize: 24,
         currentIndex: 0,
         onTap: (int index) {
           setState(() {
@@ -40,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: new ImageIcon(
                   AssetImage('assets/home.png')
               ),
-              label: 'Home'
+              label: 'Accueil'
           ),
 
           new BottomNavigationBarItem(
@@ -61,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: new ImageIcon(
                   AssetImage('assets/bell.png')
               ),
-              label: 'Alertes'
+              label: 'Alertes',
           )
 
 
