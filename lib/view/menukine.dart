@@ -1,133 +1,72 @@
 import 'package:flutter/material.dart';
 
-class Menukine extends StatelessWidget {
+class Menukine extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter des',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-
-      ),
-      home: MyHomePage(),
-    );
+  State<StatefulWidget> createState() {
+    return MenukineState();
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-
+class MenukineState extends State<Menukine> {
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+  void initState() {
+    super.initState();
+  }
 
-class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Color(0xff005DFF),
-        unselectedItemColor: Color(0x7F005DFF),
-        selectedFontSize: 12,
-        iconSize: 24,
-        currentIndex: 0,
-        onTap: (int index) {
-          setState(() {
-          });
-        },
-
-        items: [
-          new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/home.png')
-              ),
-              label: 'Accueil'
-          ),
-
-          new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/patient.png')
-              ),
-              label: 'Patients'
-          ),
-
-          new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/cardiogram.png')
-              ),
-              label: 'Programmes'
-          ),
-
-          new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/bell.png')
-              ),
-              label: 'Alertes',
-          )
-
-
-        ],
-
-      ),
-      backgroundColor: const Color(0xFFF7F7F7),
-      body: Stack(
+    return new Center(
+      child: Stack(
         children: <Widget>[
           Column(
+          children: <Widget>[
+            Container(
+            padding: const EdgeInsets.only(left: 10,top: 35.2,right: 10,bottom: 80),
+            child:Text("KimnésiK",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 27.4),)
+            ),
+            Container(
+            height: 220,
+            child: GridView.count(
+            primary: false,
+            padding: const EdgeInsets.only(left: 50,top: 0,right: 50,bottom: 0),
+            mainAxisSpacing: 10,
+            crossAxisCount: 1,
+            childAspectRatio: 2.11,
             children: <Widget>[
-              Container(
-                  padding: const EdgeInsets.only(left: 10,top: 35.2,right: 10,bottom: 80),
-                  child:Text(
-                    "KimnésiK",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 27.4),
-                  )
+              OutlineButton(
+              onPressed: () => {},
+              color: Colors.white,
+              child:
+                Column( // Replace with a Row for horizontal icon + text
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset('assets/patient.png',height:52.2),
+                    Text("Patients",style: TextStyle(fontSize: 14.3))
+                  ]),
               ),
-              Container(
-                  height: 220,
-                  child: GridView.count(
-                    primary: false,
-                    padding: const EdgeInsets.only(left: 50,top: 0,right: 50,bottom: 0),
-                    mainAxisSpacing: 10,
-                    crossAxisCount: 1,
-                    childAspectRatio: 2.11,
-                    children: <Widget>[
-                      OutlineButton(
-                        onPressed: () => {},
-                        color: Colors.white,
-                        child: Column( // Replace with a Row for horizontal icon + text
-
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Image.asset('assets/patient.png',height:52.2),
-                            Text("Patients",style: TextStyle(fontSize: 14.3))
-                          ],
-                        ),
-                      ),
-
-                      OutlineButton(
-                        onPressed: () => {},
-                        color: Colors.white,
-                        child: Column( // Replace with a Row for horizontal icon + text
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                          Image.asset('assets/cardiogram.png',height:52.2),
-                            Text("Programmes",style: TextStyle(fontSize: 14.3))
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
+              OutlineButton(
+              onPressed: () => {},
+              color: Colors.white,
+              child:
+                Column( // Replace with a Row for horizontal icon + text
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset('assets/cardiogram.png',height:52.2),
+                  Text("Programmes",style: TextStyle(fontSize: 14.3))
+                ]),
               ),
-
-            ],
+            ])
           ),
-
-        ],
-      ),
+        ]),
+      ]),
     );
   }
 }
