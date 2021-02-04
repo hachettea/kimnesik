@@ -44,8 +44,7 @@ class MenukineState extends State<Menukine> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-                padding: const EdgeInsets.only(
-                    left: 10, top: 35.2, right: 10, bottom: 80),
+                padding: const EdgeInsets.only(left: 10, top: 35.2, right: 10),
                 child: Text(
                   "KimnésiK",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27.4),
@@ -56,10 +55,10 @@ class MenukineState extends State<Menukine> {
           flex: 4,
           child: (Row(children: [
             Spacer(
-              flex: 4,
+              flex: 1,
             ),
             Expanded(
-              flex: 4,
+              flex: 6,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,37 +72,60 @@ class MenukineState extends State<Menukine> {
                         onPressed: () => {},
                         color: Colors.white,
                         child: Expanded(
-                          child: Column(
-                              // Replace with a Row for horizontal icon + text
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/patient.png',
-                                  fit: BoxFit.fitHeight,
-                                ),
-                                Text("Patients",
-                                    style: TextStyle(fontSize: 14.3))
-                              ]),
+                          child: Row(children: [
+                            Spacer(
+                              flex: 1,
+                            ),
+                            Expanded(
+                              child: Column(
+                                  // Replace with a Row for horizontal icon + text
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Image.asset(
+                                      'assets/patient.png',
+                                      fit: BoxFit.fitHeight,
+                                    ),
+                                    Text("Patients",
+                                        style: TextStyle(fontSize: 14.3))
+                                  ]),
+                            ),
+                            Spacer(
+                              flex: 1,
+                            ),
+                          ]),
                         ),
                       )),
+                  Padding(
+                      padding:
+                          const EdgeInsets.only(left: 0, top: 15, right: 0)),
                   Expanded(
                     flex: 1,
                     child: OutlineButton(
-                      onPressed: () => {},
-                      color: Colors.white,
-                      child: Column(
-                          // Replace with a Row for horizontal icon + text
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/cardiogram.png',
-                              fit: BoxFit.fitHeight,
-                            ),
-                            Text("Programmes", style: TextStyle(fontSize: 14.3))
-                          ]),
-                    ),
+                        onPressed: () => {},
+                        color: Colors.white,
+                        child: Expanded(
+                            child: Row(children: [
+                          Spacer(
+                            flex: 1,
+                          ),
+                          Expanded(
+                              child: Column(
+                                  // Replace with a Row for horizontal icon + text
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                Image.asset(
+                                  'assets/cardiogram.png',
+                                  fit: BoxFit.fitHeight,
+                                ),
+                                Text("Programmes",
+                                    style: TextStyle(fontSize: 14.3))
+                              ])),
+                          Spacer(
+                            flex: 1,
+                          ),
+                        ]))),
                   ),
                   Spacer(
                     flex: 1,
@@ -112,7 +134,7 @@ class MenukineState extends State<Menukine> {
               ),
             ),
             Spacer(
-              flex: 4,
+              flex: 1,
             ),
           ])),
         )
