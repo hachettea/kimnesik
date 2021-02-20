@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kimnesik/view/menukine.dart';
+import 'package:kimnesik/view/listeprogrammes.dart';
 
-class PagePrincipale extends StatefulWidget  {
+class PagePrincipale extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _PagePrincipaleState();
@@ -9,7 +10,6 @@ class PagePrincipale extends StatefulWidget  {
 }
 
 class _PagePrincipaleState extends State<PagePrincipale> {
-
   int selectedNavBarIndex = 0;
 
   getSelectedNavBarIndex(int pos) {
@@ -17,9 +17,11 @@ class _PagePrincipaleState extends State<PagePrincipale> {
       case 0:
         return new Menukine();
       case 1:
-        //return new SecondFragment();
+        return; //return new ListePatients();
       case 2:
-        //return new ThirdFragment();
+        return new ListeProgrammes();
+      case 3:
+      //return new ThirdFragment();
 
       default:
         return new Text("");
@@ -31,14 +33,13 @@ class _PagePrincipaleState extends State<PagePrincipale> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Color(0xff005DFF),
-        unselectedItemColor: Color(0x7F005DFF),
+        selectedItemColor: Color(0xff24B7B1),
+        unselectedItemColor: Color(0x7F24B7B1),
         selectedFontSize: 12,
         iconSize: 24,
         currentIndex: selectedNavBarIndex,
@@ -47,41 +48,23 @@ class _PagePrincipaleState extends State<PagePrincipale> {
             selectedNavBarIndex = index;
           });
         },
-
         items: [
           new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/home.png')
-              ),
-              label: 'Accueil'
-          ),
-
+              icon: new ImageIcon(AssetImage('assets/home.png')),
+              label: 'Accueil'),
           new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/patient.png')
-              ),
-              label: 'Patients'
-          ),
-
+              icon: new ImageIcon(AssetImage('assets/patient.png')),
+              label: 'Patients'),
           new BottomNavigationBarItem(
-              icon: new ImageIcon(
-                  AssetImage('assets/cardiogram.png')
-              ),
-              label: 'Programmes'
-          ),
-
+              icon: new ImageIcon(AssetImage('assets/cardiogram.png')),
+              label: 'Programmes'),
           new BottomNavigationBarItem(
-            icon: new ImageIcon(
-                AssetImage('assets/bell.png')
-            ),
+            icon: new ImageIcon(AssetImage('assets/bell.png')),
             label: 'Alertes',
           )
-
-
         ],
-
       ),
-      backgroundColor: const Color(0xFFF7F7F7),
+      backgroundColor: const Color(0xFFFFFAFA),
       body: getSelectedNavBarIndex(selectedNavBarIndex),
     );
   }
