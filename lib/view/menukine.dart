@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:kimnesik/view/listeprogrammes.dart';
 
 class Menukine extends StatefulWidget {
   @override
@@ -38,7 +39,8 @@ class MenukineState extends State<Menukine> {
 
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return new Scaffold(
+        body: Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +94,13 @@ class MenukineState extends State<Menukine> {
                   Expanded(
                       flex: 1,
                       child: OutlineButton(
-                        onPressed: () => {},
+                        onPressed: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => new ListeProgrammes()),
+                          )
+                        },
                         color: Colors.white,
                         child: Row(children: [
                           Spacer(
@@ -161,6 +169,6 @@ class MenukineState extends State<Menukine> {
           ])),
         )
       ],
-    );
+    ));
   }
 }
