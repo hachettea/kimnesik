@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PageCreerProgramme extends StatefulWidget {
-  const PageCreerProgramme({Key key}) : super(key: key);
+class ProgramGenerator extends StatefulWidget {
+  const ProgramGenerator({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return CreerProgrammeState();
+    return ProgramGeneratorState();
   }
 }
 
-class CreerProgrammeState extends State<PageCreerProgramme> {
+class ProgramGeneratorState extends State<ProgramGenerator> {
   TextEditingController textController = TextEditingController();
 
   @override

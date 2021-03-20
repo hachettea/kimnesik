@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kimnesik/view/programGenerator.dart';
+import 'package:kimnesik/view/notifications.dart';
+import 'package:kimnesik/view/patients.dart';
 import 'package:kimnesik/view/home.dart';
 import 'package:kimnesik/view/programs.dart';
 
@@ -15,16 +16,16 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget child;
     if (tabItem == "Home")
-      child = PageMenuKine(
+      child = Home(
         changePage: (int index) {
           changePage(index);
         },
       );
-    else if (tabItem == "PageProgrammes")
-      child = PageProgrammes();
-    else if (tabItem == "PageCreerProgramme")
-      child = PageCreerProgramme();
-    else if (tabItem == "PageCreerProgramme") child = PageCreerProgramme();
+    else if (tabItem == "Patients")
+      child = Patients();
+    else if (tabItem == "Programs")
+      child = Programs();
+    else if (tabItem == "Notifications") child = Notifications();
 
     return Navigator(
       key: navigatorKey,

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:kimnesik/view/tabNavigator.dart';
 
-class PagePrincipale extends StatefulWidget {
+class App extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _PagePrincipaleState();
+    return AppState();
   }
 }
 
-class _PagePrincipaleState extends State<PagePrincipale> {
+class AppState extends State<App> {
   String _currentPage = "Home";
-  List<String> pageKeys = ["Home", "PageProgrammes", "PageCreerProgramme"];
+  List<String> pageKeys = ["Home", "Patients", "Programs", "Notifications"];
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     "Home": GlobalKey<NavigatorState>(),
-    "PageProgrammes": GlobalKey<NavigatorState>(),
-    "PageCreerProgramme": GlobalKey<NavigatorState>(),
+    "Patients": GlobalKey<NavigatorState>(),
+    "Programs": GlobalKey<NavigatorState>(),
+    "Notifications": GlobalKey<NavigatorState>(),
   };
   int _currentIndex = 0;
 
@@ -62,8 +63,9 @@ class _PagePrincipaleState extends State<PagePrincipale> {
         body: Stack(
           children: <Widget>[
             _buildOffstageNavigator("Home"),
-            _buildOffstageNavigator("PageProgrammes"),
-            _buildOffstageNavigator("PageCreerProgramme"),
+            _buildOffstageNavigator("Patients"),
+            _buildOffstageNavigator("Programs"),
+            _buildOffstageNavigator("Notifications"),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -88,7 +90,7 @@ class _PagePrincipaleState extends State<PagePrincipale> {
                 label: 'Programmes'),
             new BottomNavigationBarItem(
               icon: new ImageIcon(AssetImage('assets/bell.png')),
-              label: 'Alertes',
+              label: 'Notifications',
             )
           ],
         ),

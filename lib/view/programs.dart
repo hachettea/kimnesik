@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kimnesik/view/programGenerator.dart';
 
-class PageProgrammes extends StatefulWidget {
-  const PageProgrammes({Key key}) : super(key: key);
+class Programs extends StatefulWidget {
+  const Programs({Key key}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
-    return PageProgrammesState();
+    return ProgramsState();
   }
 }
 
-class PageProgrammesState extends State<PageProgrammes> {
+class ProgramsState extends State<Programs> {
   TextEditingController textController = TextEditingController();
   List<String> initialList = [
     "Ligament croisé",
@@ -172,7 +172,7 @@ class PageProgrammesState extends State<PageProgrammes> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          new PageCreerProgramme()));
+                                          new ProgramGenerator()));
                             },
                             child: Column(
                               mainAxisSize: MainAxisSize.min,

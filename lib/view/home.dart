@@ -1,21 +1,23 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:kimnesik/view/programs.dart';
 
 typedef void IntCallback(int id);
 
-class PageMenuKine extends StatefulWidget {
+class Routes {
+  static const int patients = 1;
+  static const int programs = 2;
+}
+
+class Home extends StatefulWidget {
   final IntCallback changePage;
-  const PageMenuKine({Key key, this.changePage}) : super(key: key);
+  const Home({Key key, this.changePage}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return PageMenuKineState();
+    return HomeState();
   }
 }
 
-class PageMenuKineState extends State<PageMenuKine> {
+class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
@@ -24,22 +26,6 @@ class PageMenuKineState extends State<PageMenuKine> {
   @override
   void dispose() {
     super.dispose();
-  }
-
-  Widget _buildBox({int points, Color color, Color textColor = Colors.white}) {
-    return Expanded(
-      flex: points,
-      child: Container(
-        constraints: BoxConstraints.expand(),
-        color: color,
-        child: Center(
-          child: Text(
-            '$points',
-            style: TextStyle(fontSize: 32.0, color: textColor),
-          ),
-        ),
-      ),
-    );
   }
 
   @override
@@ -99,15 +85,7 @@ class PageMenuKineState extends State<PageMenuKine> {
                   Expanded(
                       flex: 1,
                       child: OutlineButton(
-                        onPressed: () => {
-                          widget.changePage(1)
-                          /*
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => new PageProgrammes()),
-                          )*/
-                        },
+                        onPressed: () => {widget.changePage(Routes.patients)},
                         color: Colors.white,
                         child: Row(children: [
                           Spacer(
@@ -139,7 +117,7 @@ class PageMenuKineState extends State<PageMenuKine> {
                   Expanded(
                     flex: 1,
                     child: OutlineButton(
-                        onPressed: () => {},
+                        onPressed: () => {widget.changePage(Routes.programs)},
                         color: Colors.white,
                         child: Row(children: [
                           Spacer(
@@ -179,3 +157,20 @@ class PageMenuKineState extends State<PageMenuKine> {
     ));
   }
 }
+/*
+  Widget _buildBox({int points, Color color, Color textColor = Colors.white}) {
+    return Expanded(
+      flex: points,
+      child: Container(
+        constraints: BoxConstraints.expand(),
+        color: color,
+        child: Center(
+          child: Text(
+            '$points',
+            style: TextStyle(fontSize: 32.0, color: textColor),
+          ),
+        ),
+      ),
+    );
+  }
+  */
