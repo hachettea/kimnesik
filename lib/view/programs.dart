@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:kimnesik/view/programGenerator.dart';
 
-class ListeProgrammes extends StatefulWidget {
+class PageProgrammes extends StatefulWidget {
+  const PageProgrammes({Key key}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
-    return ListeProgrammesState();
+    return PageProgrammesState();
   }
 }
 
-class ListeProgrammesState extends State<ListeProgrammes> {
+class PageProgrammesState extends State<PageProgrammes> {
   TextEditingController textController = TextEditingController();
   List<String> initialList = [
     "Ligament croisé",
@@ -158,14 +160,20 @@ class ListeProgrammesState extends State<ListeProgrammes> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: <Widget>[
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Color(0xff24B7B1),
+                  Column(
+                    children: <Widget>[
+                      Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                        color: Color(0xff24B7B1),
+                        child: new InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          new PageCreerProgramme()));
+                            },
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
@@ -184,10 +192,10 @@ class ListeProgrammesState extends State<ListeProgrammes> {
                                   ),
                                 ),
                               ],
-                            ),
-                          )
-                        ],
-                      )),
+                            )),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

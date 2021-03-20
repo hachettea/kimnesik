@@ -1,16 +1,21 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:kimnesik/view/listeprogrammes.dart';
+import 'package:kimnesik/view/programs.dart';
 
-class Menukine extends StatefulWidget {
+typedef void IntCallback(int id);
+
+class PageMenuKine extends StatefulWidget {
+  final IntCallback changePage;
+  const PageMenuKine({Key key, this.changePage}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
-    return MenukineState();
+    return PageMenuKineState();
   }
 }
 
-class MenukineState extends State<Menukine> {
+class PageMenuKineState extends State<PageMenuKine> {
   @override
   void initState() {
     super.initState();
@@ -95,11 +100,13 @@ class MenukineState extends State<Menukine> {
                       flex: 1,
                       child: OutlineButton(
                         onPressed: () => {
+                          widget.changePage(1)
+                          /*
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => new ListeProgrammes()),
-                          )
+                                builder: (context) => new PageProgrammes()),
+                          )*/
                         },
                         color: Colors.white,
                         child: Row(children: [
