@@ -185,6 +185,7 @@ class ProgramsState extends State<Programs> {
                                   ),
                                   title: Text(
                                     'Créer un programme',
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.white,
